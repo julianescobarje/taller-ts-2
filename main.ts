@@ -27,6 +27,41 @@ series.forEach((serie) => {
   link.textContent = serie.name;
   nameCell.appendChild(link);
 
+  // Add a function when clicking on the row
+  row.addEventListener('click', () => {
+    const card = document.getElementById('serie-detail');
+    if (!card) {
+      return;
+    }
+
+    const image = card.querySelector('img');
+    if (!image) {
+      return;
+    }
+    image.src = serie.image;
+
+    const title = card.querySelector('h5');
+    if (!title) {
+      return;
+    }
+    title.textContent = serie.name;
+
+    const description = card.querySelector('p');
+    if (!description) {
+      return;
+    }
+    description.textContent = serie.description;
+
+    const link = card.querySelector('a');
+    if (!link) {
+      return;
+    }
+    link.href = serie.link;
+    link.textContent = serie.link;
+
+    card.style.display = 'block';
+  });
+
   row.appendChild(idCell);
   row.appendChild(nameCell);
   row.appendChild(channelCell);
